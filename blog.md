@@ -3,7 +3,7 @@
 *This series of blog posts are intended for GIS professionals who have an interest in learning how to code geospatial workflows already familiar to them, using Esri's ArcGIS Runtime APIs*
 
 ![Image of hillshade renderer in Arran](HillshadeRendererOnArran.png)
-*Mountains of the Isle of Arran, Scotland, using 1m resolution opensource LiDAR data to create a realistic sunset hillshade effect. Made using ArcGIS Runtime for Java API*
+*Mountains of the Isle of Arran, Scotland, using 1m resolution opensource LiDAR data to create a realistic sunset hillshade effect. Made using ArcGIS Runtime for Java API, data Copyright Scottish Government and SEPA (2014).*
 
 The first cartographic technique I came across during my early career in geology was that of applying hillshades to digital elevation models, in order to make the dull, flat, greyscale raster **pop** into life as a realistic landscape with depth and dimension. Hillshade rendering uses highlights and shadows to create this 3D landscape, and is an invaluable tool in picking out subtle landscape features during the desk study phase of any geological investigation. It was one of my favourite tools when using ArcGIS Pro (well, ArcMap at the time!), with many an hour disappearing tweaking the settings in order to maximise landscape features that would later become the focus of a field survey: is that long sinuous feature an esker (marking the site of a river which once flowed beneath a glacier) and therefore worthy of a field study, or is it human-made and can therefore not of interest in a glacial superficial deposit field survey? When I changed careers and joined the ArcGIS Runtime for Java API team as a product engineer, I was delighted to discover much of the functionality I loved from Esri's desktop software was present in their Runtime offerings.
 
@@ -11,7 +11,7 @@ There are so many amazing blogs/tutorials out there already for hillshade render
 
 ## Data ##
 
-For this blog, open source Scottish Public Sector LiDAR data from the [Scottish Remote Sensing Portal](https://remotesensingdata.gov.scot/) was used, with the data made available under the Open Government Licence v3. These are incredibly detailed data sets covering parts of Scotland, including complete 1m coverage of the Isle of Arran: a geological playground with varied topography, that I couldn't wait to load it up in Runtime and see the results. I was really impressed this caliber of data was freely and openly available: check it out if you haven't already, there's a handy webmap interface where you can see the coverage, including 25cm resolution in parts of the Outer Hebrides.
+For this blog, open source Scottish Public Sector LiDAR data from the [Scottish Remote Sensing Portal](https://remotesensingdata.gov.scot/) was used, with the data made available under the Open Government Licence v3 (*copyright Scottish Government and SEPA (2014)*). These are incredibly detailed data sets covering parts of Scotland, including complete 1m coverage of the Isle of Arran via the LiDAR for Scotland Phase II DTM dataset. Arran is a geological playground with varied topography, and I couldn't wait to load it up in Runtime and see the results. I was really impressed this caliber of data was freely and openly available: check it out if you haven't already, there's a handy webmap interface where you can see the coverage, including 25cm resolution in parts of the Outer Hebrides.
 
 ## The Code ##
 
@@ -80,7 +80,7 @@ arcGISScene.getOperationalLayers().add(rasterLayer);
 The hillshade renderer is applied, and the raster data is displayed on the scene: and looks great, just like you'd expect from the equivalent ArcGIS Pro hillshade toolset. Already features in the landscape are **popping** into life in the same exciting way I remember from my ArcGIS Pro days.
 
 ![Image of 2D hillshade renderer over Glen Rosa, Arran](2DHillshadeRendererGlenRosa.png)
-*The hillshade is applied to the raster data, creating a visual 3D effect. This view is looking directly down on to the head of Glen Rosa, Arran.*
+*The hillshade is applied to the raster data, creating a visual 3D effect. This view is looking directly down on to the head of Glen Rosa, Arran. Data Copyright Scottish Government and SEPA (2014).*
 
 The final twist in this bitesized coding tale is to make full use of the geotiff data and not only make the landscape *look* 3D, but actually **make** it 3D, by creating a 3D surface. We do this in Runtime by instantiating a new `RasterElevationSource` with the list of geotiffs provided as a parameter. Create a new `Surface`, get its list of elevation sources and add the `rasterElevationSource` to it. Finally, set the surface as the base surface of the ArcGIS Scene.
 
@@ -96,7 +96,6 @@ arcGISScene.setBaseSurface(surface);
 ```
 
 ![Image of 3D hillshade renderer over Goatfell, Arran](3DSurfaceGoatFell.png)
-*The surface of the ArcGIS Scene is now truly 3D, with the geotiff data used to create an elevation source. This view is looking towards the western flank of the mountain of Goatfell, Arran.*
-
+*The surface of the ArcGIS Scene is now truly 3D, with the geotiff data used to create an elevation source. This view is looking towards the western flank of the mountain of Goatfell, Arran. Data Copyright Scottish Government and SEPA (2014).*
 
 And tada, that's it! In only a few lines of code, a hillshade effect is rendered quickly and easily using the open source LiDAR data, and a 3D base surface created to provide a simple, high resolution 3D digital twin of the Isle of Arran as it would appear at sunset on a November evening. As when using Esri's desktop offerings, visual analysis of this data running in a native application is invaluable for desktop studies. With ArcGIS Runtime, you can customise this application even further and continue exploring the functionality the native APIs from Esri give you or bundle this up with your other favourite libraries.
