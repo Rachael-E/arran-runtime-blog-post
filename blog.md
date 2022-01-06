@@ -95,7 +95,7 @@ surface.getElevationSources().add(rasterElevationSource);
 arcGISScene.setBaseSurface(surface);
 ```
 
-![Image of 3D hillshade renderer over Goatfell, Arran](3DHillshadeRendererGoatFell.png)
+![Image of 3D hillshade renderer over Goatfell, Arran](3DHillshadeRenderedGoatFell.png)
 *The surface of the ArcGIS Scene is now truly 3D, with the geotiff data used to create an elevation source. This view is looking towards the western flank of the mountain of Goatfell, Arran.*
 
 
