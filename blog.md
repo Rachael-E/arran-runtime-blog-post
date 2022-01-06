@@ -1,4 +1,4 @@
-#Code it: creating hillshade effects using ArcGIS Runtime#
+# Code it: creating hillshade effects using ArcGIS Runtime #
 
 *This series of blog posts are intended for GIS professionals who have an interest in learning how to code geospatial workflows already familiar to them, using Esri's ArcGIS Runtime APIs*
 
@@ -8,11 +8,11 @@ The first cartographic technique I came across during my early career in geology
 
 There are so many amazing blogs/tutorials out there already for hillshade rendering in Esri's flagship ArcGIS Pro, so I won't be stepping into detail about what a hillshade is, or the algorithms behind it in this blog. Instead, I want to share an alternative, coded approach to using ArcGIS Pro which achieves similar visually stunning hillshaded results using ArcGIS Runtime, and inspire GIS professionals interested in coding to give it a go.  I'll show how easy it is to load raster data into a desktop application using the ArcGIS Runtime for Java API, and how to apply a hillshade renderer to it and create a 3D digital visually realistic landscape. The results are as you would expect from ArcGIS Pro, but with the added fun of you get to code it up yourself and customise your application how ever you want.
 
-##Data##
+## Data ##
 
 For this blog, open source Scottish Public Sector LiDAR data from the Scottish Remote Sensing Portal (https://remotesensingdata.gov.scot/) was used, with the data made available under the Open Government Licence v3. These are incredibly detailed data sets covering parts of Scotland, including complete 1m coverage of the Isle of Arran: a geological playground with varied topography, that I couldn't wait to load it up in Runtime and see the results. I was really impressed this caliber of data was freely and openly available: check it out if you haven't already, there's a handy webmap interface where you can see the coverage, including 25cm resolution in parts of the Outer Hebrides.
 
-##The Code##
+## The Code ##
 
 *If you're new to the ArcGIS Runtime APIs suite, you can find out more information here https://developers.arcgis.com/documentation/mapping-apis-and-services/apis-and-sdks/#native-apis, or to follow along using the ArcGIS Runtime for Java API, get started here https://developers.arcgis.com/java/*
 
