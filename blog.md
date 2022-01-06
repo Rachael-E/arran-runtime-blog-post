@@ -75,7 +75,10 @@ rasterLayer.setRasterRenderer(hillshadeRenderer);
 // add the raster layer to the scene's operational layers
 arcGISScene.getOperationalLayers().add(rasterLayer);
 ```
+
 The hillshade renderer is applied, and the raster data is displayed on the scene: and looks great, just like you'd expect from the equivalent ArcGIS Pro hillshade toolset. Already features in the landscape are **popping** into life in the same exciting way I remember from my ArcGIS Pro days.
+
+![Image of hillshade renderer over Goatfell, Arran](2DHillshadeRendererGoatFell.png)
 
 The final twist in this bitesized coding tale is to make full use of the geotiff data and not only make the landscape *look* 3D, but actually **make** it 3D, by creating a 3D surface. We do this in Runtime by instantiating a new `RasterElevationSource` with the list of geotiffs provided as a parameter. Create a new `Surface`, get its list of elevation sources and add the `rasterElevationSource` to it. Finally, set the surface as the base surface of the ArcGIS Scene.
 
