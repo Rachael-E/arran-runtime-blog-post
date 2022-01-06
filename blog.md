@@ -11,13 +11,13 @@ There are so many amazing blogs/tutorials out there already for hillshade render
 
 ## Data ##
 
-For this blog, open source Scottish Public Sector LiDAR data from the Scottish Remote Sensing Portal (https://remotesensingdata.gov.scot/) was used, with the data made available under the Open Government Licence v3. These are incredibly detailed data sets covering parts of Scotland, including complete 1m coverage of the Isle of Arran: a geological playground with varied topography, that I couldn't wait to load it up in Runtime and see the results. I was really impressed this caliber of data was freely and openly available: check it out if you haven't already, there's a handy webmap interface where you can see the coverage, including 25cm resolution in parts of the Outer Hebrides.
+For this blog, open source Scottish Public Sector LiDAR data from the [Scottish Remote Sensing Portal](https://remotesensingdata.gov.scot/) was used, with the data made available under the Open Government Licence v3. These are incredibly detailed data sets covering parts of Scotland, including complete 1m coverage of the Isle of Arran: a geological playground with varied topography, that I couldn't wait to load it up in Runtime and see the results. I was really impressed this caliber of data was freely and openly available: check it out if you haven't already, there's a handy webmap interface where you can see the coverage, including 25cm resolution in parts of the Outer Hebrides.
 
 ## The Code ##
 
-*If you're new to the ArcGIS Runtime APIs suite, you can find out more information here https://developers.arcgis.com/documentation/mapping-apis-and-services/apis-and-sdks/#native-apis, or to follow along using the ArcGIS Runtime for Java API, get started here https://developers.arcgis.com/java/*
+*If you're new to the ArcGIS Runtime APIs suite, you can [find out more information](https://developers.arcgis.com/documentation/mapping-apis-and-services/apis-and-sdks/#native-apis), or to follow along using the ArcGIS Runtime for Java API, get started with our [documentation and tutorials](https://developers.arcgis.com/java/)*
 
-After setting up the JavaFX UI component of a new Java application in your IDE of choice (read here for more details https://developers.arcgis.com/java/maps-2d/tutorials/display-a-map/#add-a-ui-for-the-map-view), create a `ArcGISScene` class along with a new `SceneView`. The `ArcGISScene` is the equivalent of a 3D scene in ArcGIS Pro, and hosts layers that can be displayed in 3D. The `SceneView` is the user interface that displays scene layers and graphics in 3D, and is the equivalent of the view pane in ArcGIS Pro.
+After setting up the JavaFX UI component of a new Java application in your IDE of choice (see our [getting started tutorial](https://developers.arcgis.com/java/maps-2d/tutorials/display-a-map/) for details on setting up a ArcGIS Runtime for Java application from scratch), create a `ArcGISScene` class along with a new `SceneView`. The `ArcGISScene` is the equivalent of a 3D scene in ArcGIS Pro, and hosts layers that can be displayed in 3D. The `SceneView` is the user interface that displays scene layers and graphics in 3D, and is the equivalent of the view pane in ArcGIS Pro.
 
 ```java
 // create a scene and scene view
@@ -25,7 +25,7 @@ var scene = new ArcGISScene();
 var sceneView = new SceneView(); // member variable
 ```
 
-Next, bring the data (in geotiff format) into the application (you can either download your own data, or access the LiDAR tiles for Arran via a hosted open item on ArcGIS Online(https://arcgisruntime.maps.arcgis.com/home/item.html?id=ce99a45b9e664b4ebe3cb1cedf552b1d)).
+Next, bring the data (in geotiff format) into the application (you can either download your own data, or access the LiDAR tiles for Arran via a [hosted open item on ArcGIS Online](https://arcgisruntime.maps.arcgis.com/home/item.html?id=ce99a45b9e664b4ebe3cb1cedf552b1d)).
 
 ```java
 // get the GeoTiffs that contain 1m lidar digital terrain model (data copyright Scottish Government and SEPA (2014)).
@@ -43,7 +43,7 @@ List<String> tifFiles = new ArrayList<>(Arrays.asList(
 ));
 ```
 
-Now for the fun part! The hillshade renderer parameters are set up via the constructor for a new `HillshadeRenderer` class. If you are familiar with ArcGIS Pro's hillshade toolset, you'll recognise the same parameters here (https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/how-hillshade-works.htm).
+Now for the fun part! The hillshade renderer parameters are set up via the constructor for a new `HillshadeRenderer` class. If you are familiar with ArcGIS Pro's hillshade toolset, you'll recognise the [same parameters](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/how-hillshade-works.htm).
 - `altitude` - light's angle of elevation above the horizon, in degrees
 - `azimuth` - light's relative angle along the horizon, in degrees; measured clockwise, 0 is north
 - `zFactor` - factor to convert z unit to x,y units
