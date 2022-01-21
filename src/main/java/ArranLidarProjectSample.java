@@ -59,7 +59,7 @@ public class ArranLidarProjectSample extends Application {
       sceneView = new SceneView();
 
       // get the GeoTiffs that contain 1m lidar digital terrain model (data copyright Scottish Government and SEPA (2014)).
-      List<String> tifFiles = new ArrayList<>(Arrays.asList(
+      List<String> geoTiffFiles = new ArrayList<>(Arrays.asList(
         new File("./data/arran-lidar-data/NS02_1M_DTM_PHASE2.tif").getAbsolutePath(),
         new File("./data/arran-lidar-data/NS03_1M_DTM_PHASE2.tif").getAbsolutePath(),
         new File("./data/arran-lidar-data/NS04_1M_DTM_PHASE2.tif").getAbsolutePath(),
@@ -76,14 +76,14 @@ public class ArranLidarProjectSample extends Application {
       var hillshadeRenderer = new HillshadeRenderer(10, 225, 1);
 
       // check the array contains 10 GeoTIFFS as expected
-      if (tifFiles.size() == 10) {
+      if (geoTiffFiles.size() == 10) {
 
         // add a done loading listener to the scene, and check that it has loaded successfully
         arcGISScene.addDoneLoadingListener(() -> {
           if (arcGISScene.getLoadStatus() == LoadStatus.LOADED) {
 
             // loop through the geotiffs
-            for (String tifFile : tifFiles) {
+            for (String tifFile : geoTiffFiles) {
 
               // create a raster from every GeoTIFF
               var raster = new Raster(tifFile);
@@ -97,7 +97,7 @@ public class ArranLidarProjectSample extends Application {
             }
 
             // create an elevation source from the GeoTIFF (raster) collection
-            var rasterElevationSource = new RasterElevationSource(tifFiles);
+            var rasterElevationSource = new RasterElevationSource(geoTiffFiles);
 
             // create a surface, get its elevation sources, and add the raster elevation source to the collection
             var surface = new Surface();
