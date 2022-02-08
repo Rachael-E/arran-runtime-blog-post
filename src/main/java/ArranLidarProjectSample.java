@@ -58,7 +58,7 @@ public class ArranLidarProjectSample extends Application {
       var arcGISScene = new ArcGISScene();
       sceneView = new SceneView();
 
-      // get the GeoTiffs that contain 1m lidar digital terrain model (data copyright Scottish Government and SEPA (2014)).
+      // get the GeoTIFFs that contain 1m lidar digital terrain model (data copyright Scottish Government and SEPA (2014)).
       List<String> geoTiffFiles = new ArrayList<>(Arrays.asList(
         new File("./data/arran-lidar-data/NS02_1M_DTM_PHASE2.tif").getAbsolutePath(),
         new File("./data/arran-lidar-data/NS03_1M_DTM_PHASE2.tif").getAbsolutePath(),
@@ -82,11 +82,11 @@ public class ArranLidarProjectSample extends Application {
         arcGISScene.addDoneLoadingListener(() -> {
           if (arcGISScene.getLoadStatus() == LoadStatus.LOADED) {
 
-            // loop through the geotiffs
-            for (String tifFile : geoTiffFiles) {
+            // loop through the GeoTIFFs
+            for (String geoTiffFile : geoTiffFiles) {
 
               // create a raster from every GeoTIFF
-              var raster = new Raster(tifFile);
+              var raster = new Raster(geoTiffFile);
               // create a raster layer from the raster
               var rasterLayer = new RasterLayer(raster);
               // set a hillshade renderer to the raster layer
