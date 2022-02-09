@@ -9,7 +9,7 @@ The first cartographic technique I came across during my early career in geology
 
 There are many great blogs/tutorials about hillshade rendering in Esri's flagship product ArcGIS Pro, so I won't be detailing that here. Instead, I want to share an alternative, coded approach to using ArcGIS Pro which achieves similar visually stunning hillshaded results using ArcGIS Runtime, and inspire GIS professionals interested in coding to give it a go.  I'll show how easy it is to load raster data into a desktop application using the ArcGIS Runtime for Java API, and how to apply a hillshade renderer to it and create a 3D  visually realistic virtual landscape. The results are as you would expect from ArcGIS Pro, but with the added fun of you get to code it up yourself and customise your application how ever you want.
 
-// FLOW CHART FOR PROCESS - IMAGE OF PRE HILLSHADED RENDERER TO ILLUSTRATE THE POP
+![Image of flow chart comparing ArcGIS Pro workflow with ArcGIS Runtime workflow](ArcGISProRuntimeComparisonArran.png)
 *Generalised flow chart comparing ArcGIS Pro workflow with ArcGIS Runtime workflow*
 
 ## Data ##
@@ -45,6 +45,8 @@ List<String> geoTiffFiles = new ArrayList<>(Arrays.asList(
   new File("./data/arran-lidar-data/NR95_1M_DTM_PHASE2.tif").getAbsolutePath()
 ));
 ```
+![Image of hillshade renderer in Arran](2DPreHillshadeArran.png)
+*The raster data loaded in the sample code. Topographical detail is visible but ghostly, and requires a hillshade renderer to draw out the landscape features.*
 
 Now for the fun part! The hillshade renderer parameters are set up via the constructor for a new `HillshadeRenderer` class. If you are familiar with ArcGIS Pro's hillshade toolset, you'll recognise the [same parameters](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/how-hillshade-works.htm).
 - `altitude` - light's angle of elevation above the horizon, in degrees
