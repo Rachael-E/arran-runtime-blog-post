@@ -10,7 +10,6 @@ The first cartographic technique I came across during my early career in geology
 There are many great blogs/tutorials about hillshade rendering in Esri's flagship product ArcGIS Pro, so I won't be detailing that here. Instead, I want to share an alternative, coded approach to using ArcGIS Pro which achieves similar visually stunning hillshaded results using ArcGIS Runtime, and inspire GIS professionals interested in coding to give it a go.  I'll show how easy it is to load raster data into a desktop application using the ArcGIS Runtime for Java API, and how to apply a hillshade renderer to it and create a 3D  visually realistic virtual landscape. The results are as you would expect from ArcGIS Pro, but with the added fun of you get to code it up yourself and customise your application how ever you want.
 
 ![Image of flow chart comparing ArcGIS Pro workflow with ArcGIS Runtime workflow](ArcGISProRuntimeComparisonArran.png)
-*Generalised flow chart comparing ArcGIS Pro workflow with ArcGIS Runtime workflow*
 
 ## Data ##
 
@@ -60,7 +59,7 @@ I went for parameters which would mimic sunset conditions in November, to create
 var hillshadeRenderer = new HillshadeRenderer(10, 225, 1); // altitude, azimuth, zFactor
 ```
 
-// IMAGE SHOWING WHAT THIS LOOKS LIKE LIKE
+![Image of cartoon demonstrating hillshade settings](HillshadeCartoon.png)
 
 This hillshade renderer instance can be applied to multiple raster layers, which we have to programatically make from the data. Loop over each GeoTIFF, and for each one of them, create a new `Raster` from the GeoTIFF, and then create a `RasterLayer` from the raster. A `Raster` class represents raster data that can be rendered using a `RasterLayer`, and in this demo's case can be created from a raster file on device, using `Raster(String)`. A `RasterLayer` is required to display raster data in the scene.
 
